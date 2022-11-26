@@ -1,7 +1,8 @@
 import React from 'react';
 import './queryDisplayComp.css';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { Outlet, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addQuery } from '../redux/QuerySlice';
 /*props 
 title: string,
 query: [{
@@ -13,6 +14,7 @@ export default function QueryDisplay({
     title = '',
     query = []
 }){
+    const dispatch = useDispatch();
     return (
         <div className='mainContainer'>
             <div className='heading'>
@@ -31,7 +33,10 @@ export default function QueryDisplay({
                                     {queryItem.description}
                                 </h1>
                                 <p className="cardExplore">
-                                    <Link className="cardLink" to={'recharts'}>Explore the Chart 
+                                    <Link onClick={() => {
+                                        console.log('Clicked inside explore')
+                                        dispatch(addQuery(queryItem.title))
+                                        }} className="cardLink" to={'recharts'}>Explore the Chart 
                                     </Link>
                                 </p>
                             </div>

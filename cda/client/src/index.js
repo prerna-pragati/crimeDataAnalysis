@@ -12,8 +12,8 @@ import QueryDisplay from './queryDisplayLayout/QueryDisplayComp';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Homepage from './HomePage'
 import LineChart  from './LineChart';
-
-
+import { Provider } from 'react-redux';
+import store from './redux/store';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([{
   path: "/",
@@ -45,15 +45,47 @@ const router = createBrowserRouter([{
       path: '/home/about/generalPublic/recharts',
       element: <LineChart />
     }]
-  }
+  },
+  {
+    path:'/home/about/lawenforcement',
+    element: <QueryDisplay 
+    title='Trend Queries useful for Law Enforcement'
+    query={[
+      {
+        title: 'complex Query 1',
+        description: 'Law Enforcement complex query 1'
+      },
+      {
+        title: 'complex Query 2',
+        description: 'Law Enforcement complex query 2'
+      },
+      {
+        title: 'complex Query 3',
+        description: 'Law Enforcement complex query 3'
+      },
+      {
+        title: 'complex Query 4',
+        description: 'Law Enforcement complex query 4'
+      },
+      {
+        title: 'complex Query 5',
+        description: 'Law Enforcement complex query 5'
+      },
+    ]}
+    />,
+    children: [{
+      path: '/home/about/lawenforcement/recharts',
+      element: <LineChart />
+    }]
+  },
+  
 ]
 }])
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

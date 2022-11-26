@@ -45,7 +45,7 @@ function App(props) {
         <Card imgSrc={generalPubimg} srcTitle='General Public' cardTitle="General Public" cardDescription='Explore analytics and trend queries designed for use by General Public' cardButtonText='Go' url="about/generalpublic" />
         </div>
         <div className='col-md-4' onClick={() => onClickHandler('lm')}>
-        <Card imgSrc={lawEnfimg} srcTitle='Law Enforcement' cardTitle="Law Enforcement" cardDescription='Explore analytics and trend queries designed for use by Law Enforcement' cardButtonText='Go' />
+        <Card imgSrc={lawEnfimg} srcTitle='Law Enforcement' cardTitle="Law Enforcement" cardDescription='Explore analytics and trend queries designed for use by Law Enforcement' cardButtonText='Go' url="about/lawenforcement" />
           </div>
           <div className='col-md-4' onClick={() => onClickHandler('pm')}>
           <Card imgSrc={politicsimg} srcTitle='Politicians and policy Makers' cardTitle='Policy Makers' cardDescription='Explore analytics and trend queries designed for use by Politicians and policy Makers' cardButtonText='Go' />

@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import {
   LineChart,
   Line,
@@ -55,7 +56,10 @@ const data = [
 ];
 
 export default function App() {
+  const selectedQuery = useSelector((state) => state.querySelected.selectedQuery);
   return (
+    <>
+    <h1>{selectedQuery}</h1>
     <LineChart
       width={2000}
       height={700}
@@ -85,5 +89,6 @@ export default function App() {
         stroke="#000"
       />
     </LineChart>
+    </>
   );
 }
